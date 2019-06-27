@@ -28,6 +28,9 @@
         rgb_str = (red + green + blue);
         window.location.href='/set_rgb/' + rgb_str;
     }
+    function setBackground() {
+
+    }
 </script>
 
 <div>
@@ -59,6 +62,8 @@
 				</span></li>
         <li><a href="#" class="btn led" id="ledSetBtn"
                onclick="javascript:merge_rgb();" >Set LED</a></li>
+        <li><a href="#" class="btn green"
+               onclick="window.location.href='/read_ard'" >Change Background{{msg}}</a></li>
     </ul>
 </div>
 

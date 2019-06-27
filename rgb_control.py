@@ -11,14 +11,13 @@ port = 'COM3'  # note I'm using Mac OS-X
 ard = serial.Serial(port, 9600)
 time.sleep(2)  # wait for Arduino
 
+current_state = 0
+# rgb_intensity = "200000000"
+
 
 @app.route('/')
 def index():
     return render_template('index.html')
-
-
-current_state = 0
-# rgb_intensity = "200000000"
 
 
 @app.route('/set_rgb/<rgb_intensity>')
@@ -43,5 +42,17 @@ def led_switch():
     return render_template('index.html')
 
 
+@app.route('/read_ard')
+def read_ard():
+    print("Python value sent: BG789")
+    ard.write(str.encode("BG789#"))
+    time.sleep(0.01)
+    msg = ard.read(ard.inWaiting())  # read all characters in buffer
+    print("Message from arduino: ")
+    print(bytes.decode(msg))
+    return render_template('index.html',msg=bytes.decode(msg))
+
+
 if __name__ == '__main__':
     app.run()
+
