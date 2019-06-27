@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>switch LED</title>
+
+    <link rel="stylesheet" type="text/css" href="../static/css/normalize.css"/>
+    <link rel="stylesheet" type="text/css" href="../static/fonts/font-awesome-4.2.0/css/font-awesome.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../static/css/demo.css"/>
+    <link rel="stylesheet" type="text/css" href="../static/css/component.css"/>
+    <!--    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/component.css') }}"/>-->
+
+    <link rel="stylesheet" type="text/css" href="../static/css/menu_list.css"/>
+    <link REL="STYLESHEET" type="text/css" href="../static/css/index.css" id="index_css"/>
+
+
+</head>
+
+<body>
+
+<script type="text/javascript">
+    function merge_rgb(){
+        var red = document.getElementById('input-13').value;
+        var green = document.getElementById('input-14').value;
+        var blue = document.getElementById('input-15').value;
+
+        rgb_str = (red + green + blue);
+        window.location.href='/set_rgb/' + rgb_str;
+    }
+</script>
+
+<div>
+    <header class="header">
+        <h1>RGB LED Controller</h1>
+    </header>
+
+</div>
+
+<div id="horizontal_menu">
+    <ul>
+        <li><span class="input input--minoru">
+					<input class="input__field input__field--minoru" type="text" id="input-13" value="255"/>
+					<label class="input__label input__label--minoru" for="input-13">
+						<span class="input__label-content input__label-content--minoru">Red Value</span>
+					</label>
+				</span></li>
+        <li><span class="input input--minoru">
+					<input class="input__field input__field--minoru" type="text" id="input-14" value="255"/>
+					<label class="input__label input__label--minoru" for="input-14">
+						<span class="input__label-content input__label-content--minoru">Green Value</span>
+					</label>
+				</span></li>
+        <li><span class="input input--minoru">
+					<input class="input__field input__field--minoru" type="text" id="input-15" value="255"/>
+					<label class="input__label input__label--minoru" for="input-15">
+						<span class="input__label-content input__label-content--minoru">Blue Value</span>
+					</label>
+				</span></li>
+        <li><a href="#" class="btn led" id="ledSetBtn"
+               onclick="javascript:merge_rgb();" >Set LED</a></li>
+    </ul>
+</div>
+
+
+</body>
+
+</html>
